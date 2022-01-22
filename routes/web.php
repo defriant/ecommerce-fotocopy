@@ -39,11 +39,12 @@ Route::get('/', [WebController::class, 'index'])->name('index');
 Route::get('/all-item', [WebController::class, 'all_item']);
 Route::get('/get-keranjang-count', [WebController::class, 'keranjang_count']);
 Route::get('/search-produk/{id}', [WebController::class, 'search_produk']);
-Route::get('/produk-data/kitchen-set', [WebController::class, 'kitchen_set']);
-Route::get('/produk-data/tempat-tidur', [WebController::class, 'tempat_tidur']);
-Route::get('/produk-data/lemari', [WebController::class, 'lemari']);
-Route::get('/produk-data/meja', [WebController::class, 'meja']);
-Route::get('/produk-data/kursi', [WebController::class, 'kursi']);
+Route::get('/produk-data/{kategori}', [WebController::class, 'produk_data_kategori']);
+// Route::get('/produk-data/kitchen-set', [WebController::class, 'kitchen_set']);
+// Route::get('/produk-data/tempat-tidur', [WebController::class, 'tempat_tidur']);
+// Route::get('/produk-data/lemari', [WebController::class, 'lemari']);
+// Route::get('/produk-data/meja', [WebController::class, 'meja']);
+// Route::get('/produk-data/kursi', [WebController::class, 'kursi']);
 Route::post('/produk/{id}', [WebController::class, 'view']);
 Route::get('/produk/{id}', [WebController::class, 'view_get']);
 
@@ -77,15 +78,11 @@ Route::group(['middleware' => ['auth', 'adminRole']], function () {
     Route::get('/admin/notification-badge', [AdminController::class, 'notification_badge']);
     Route::get('/admin/produk', [AdminController::class, 'produk']);
     Route::get('/admin/produk-data', [AdminController::class, 'produk_data']);
+    Route::get('/admin/produk-data/{kategori}', [AdminController::class, 'produk_data_kategori']);
     Route::post('/admin/tambah-produk', [AdminController::class, 'tambah_produk']);
     Route::post('/admin/update-produk/{id}', [AdminController::class, 'update_produk']);
     Route::get('/admin/delete-produk/{id}', [AdminController::class, 'delete_produk']);
     Route::get('/cari-produk/{id}', [AdminController::class, 'cari_produk']);
-    Route::get('/admin/produk-data/kitchen-set', [AdminController::class, 'kitchen_set']);
-    Route::get('/admin/produk-data/tempat-tidur', [AdminController::class, 'tempat_tidur']);
-    Route::get('/admin/produk-data/lemari', [AdminController::class, 'lemari']);
-    Route::get('/admin/produk-data/meja', [AdminController::class, 'meja']);
-    Route::get('/admin/produk-data/kursi', [AdminController::class, 'kursi']);
 
     // Pesanan
     Route::get('/admin/pesanan/menunggu-konfirmasi', [AdminController::class, 'menunggu_konfirmasi']);

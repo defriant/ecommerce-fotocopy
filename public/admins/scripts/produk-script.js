@@ -170,65 +170,70 @@ $('#tambah-deskripsi').on('input', function(){
     $('#invalid-deskripsi').hide();
 })
 
-// Filter semua klik
-$('#semua').on('click', function(){
-    produk_data();
-})
 
-// Filter kitchen set klik
-$('#kitchen-set').on('click', function(){
+$('input[name="kategori"]').on('click', function(){
     $.ajax({
         type:'get',
-        url:'/admin/produk-data/kitchen-set',
+        url:'/admin/produk-data/' + $(this).val(),
         success:function(data){
             $('#produk').html(data);
         }
     })
 })
 
-// FIlter Tempat Tidur klik
-$('#tempat-tidur').on('click', function(){
-    $.ajax({
-        type:'get',
-        url:'/admin/produk-data/tempat-tidur',
-        success:function(data){
-            $('#produk').html(data);
-        }
-    })
-})
+// $('#semua').on('click', function(){
+//     produk_data();
+// })
 
-// Filter lemari klik
-$('#lemari').on('click', function(){
-    $.ajax({
-        type:'get',
-        url:'/admin/produk-data/lemari',
-        success:function(data){
-            $('#produk').html(data);
-        }
-    })
-})
+// $('#promo').on('click', function(){
+//     $.ajax({
+//         type:'get',
+//         url:'/admin/produk-data/promo',
+//         success:function(data){
+//             $('#produk').html(data);
+//         }
+//     })
+// })
 
-// Filter meja klik
-$('#meja').on('click', function(){
-    $.ajax({
-        type:'get',
-        url:'/admin/produk-data/meja',
-        success:function(data){
-            $('#produk').html(data);
-        }
-    })
-})
+// $('#tempat-tidur').on('click', function(){
+//     $.ajax({
+//         type:'get',
+//         url:'/admin/produk-data/tempat-tidur',
+//         success:function(data){
+//             $('#produk').html(data);
+//         }
+//     })
+// })
 
-// filter kursi klik
-$('#kursi').on('click', function(){
-    $.ajax({
-        type:'get',
-        url:'/admin/produk-data/kursi',
-        success:function(data){
-            $('#produk').html(data);
-        }
-    })
-})
+// $('#lemari').on('click', function(){
+//     $.ajax({
+//         type:'get',
+//         url:'/admin/produk-data/lemari',
+//         success:function(data){
+//             $('#produk').html(data);
+//         }
+//     })
+// })
+
+// $('#meja').on('click', function(){
+//     $.ajax({
+//         type:'get',
+//         url:'/admin/produk-data/meja',
+//         success:function(data){
+//             $('#produk').html(data);
+//         }
+//     })
+// })
+
+// $('#kursi').on('click', function(){
+//     $.ajax({
+//         type:'get',
+//         url:'/admin/produk-data/kursi',
+//         success:function(data){
+//             $('#produk').html(data);
+//         }
+//     })
+// })
 
 // Cari produk
 $('#cari-produk').on('input', function(){

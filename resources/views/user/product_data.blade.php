@@ -23,9 +23,7 @@
     @else
         <div class="col-md-3 product-men yes-marg">
             <div class="men-pro-item simpleCart_shelfItem" id="zoom-in">
-                @if (round((time() - strtotime($d->created_at)) / 86400) <= 2)
-                    <span class="product-new-top">New</span>
-                @endif
+                <span class="product-new-top">{{ $d->jenis }}</span>
                 <div class="thumb-item">
                     <a href="/produk/{{ $d->id }}" onclick="return view_produk('/produk/{{ $d->id }}')"><img src="{{ asset('user/barang_img/'.$d->gambar) }}" height="235px" class="pro-image-front"></a>
                     

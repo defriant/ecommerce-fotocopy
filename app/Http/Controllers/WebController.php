@@ -84,35 +84,41 @@ class WebController extends Controller
         return view('user.product_data', compact('data'));
     }
 
-    public function kitchen_set()
+    public function produk_data_kategori($kategori)
     {
-        $data = Barang::where('jenis', 'kitchen_set')->get();
+        $data = Barang::where('jenis', $kategori)->get();
         return view('user.product_data', compact('data'));
     }
 
-    public function tempat_tidur()
-    {
-        $data = Barang::where('jenis', 'tempat_tidur')->get();
-        return view('user.product_data', compact('data'));
-    }
+    // public function kitchen_set()
+    // {
+    //     $data = Barang::where('jenis', 'kitchen_set')->get();
+    //     return view('user.product_data', compact('data'));
+    // }
 
-    public function lemari()
-    {
-        $data = Barang::where('jenis', 'lemari')->get();
-        return view('user.product_data', compact('data'));
-    }
+    // public function tempat_tidur()
+    // {
+    //     $data = Barang::where('jenis', 'tempat_tidur')->get();
+    //     return view('user.product_data', compact('data'));
+    // }
 
-    public function meja()
-    {
-        $data = Barang::where('jenis', 'meja')->get();
-        return view('user.product_data', compact('data'));
-    }
+    // public function lemari()
+    // {
+    //     $data = Barang::where('jenis', 'lemari')->get();
+    //     return view('user.product_data', compact('data'));
+    // }
 
-    public function kursi()
-    {
-        $data = Barang::where('jenis', 'kursi')->get();
-        return view('user.product_data', compact('data'));
-    }
+    // public function meja()
+    // {
+    //     $data = Barang::where('jenis', 'meja')->get();
+    //     return view('user.product_data', compact('data'));
+    // }
+
+    // public function kursi()
+    // {
+    //     $data = Barang::where('jenis', 'kursi')->get();
+    //     return view('user.product_data', compact('data'));
+    // }
 
     public function view($id)
     {

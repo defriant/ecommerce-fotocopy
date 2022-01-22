@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jan 2022 pada 10.56
+-- Waktu pembuatan: 22 Jan 2022 pada 11.18
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -46,8 +46,9 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id`, `jenis`, `nama`, `harga`, `stock`, `gambar`, `deskripsi`, `terjual`, `dilihat`, `created_at`, `updated_at`) VALUES
-('furniture', 'kitchen_set', 'Furniture', 10000000, 3, 'furniture-1642788480-image-1.jpg', 'asdfghjkl', 2, 8, '2022-01-21 18:08:00', '2022-01-22 06:26:48'),
-('furniture-2', 'kitchen_set', 'Furniture', 20000000, 2, 'furniture-2-1642832939-image-1.jpg', 'Qwerty', 2, 5, '2022-01-22 06:28:59', '2022-01-22 09:50:51');
+('furniture', 'promo', 'Furniture', 10000000, 3, 'furniture-1642788480-image-1.jpg', 'asdfghjkl', 2, 8, '2022-01-21 18:08:00', '2022-01-22 10:09:00'),
+('furniture-2', 'rekondisi', 'Furniture', 20000000, 2, 'furniture-2-1642832939-image-1.jpg', 'Qwerty', 2, 6, '2022-01-22 06:28:59', '2022-01-22 10:16:41'),
+('tes', 'new', 'Tes', 15000000, 3, 'tes-1642846196-image-1.jpg', 'asdfgh', 0, 0, '2022-01-22 10:09:56', '2022-01-22 10:09:56');
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,10 @@ INSERT INTO `barang_img` (`id`, `id_barang`, `gambar`, `created_at`, `updated_at
 (12, 'furniture', 'furniture-1642788480-image-3.jpg', '2022-01-21 18:08:00', '2022-01-21 18:08:00'),
 (13, 'furniture-2', 'furniture-2-1642832939-image-1.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59'),
 (14, 'furniture-2', 'furniture-2-1642832939-image-2.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59'),
-(15, 'furniture-2', 'furniture-2-1642832939-image-3.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59');
+(15, 'furniture-2', 'furniture-2-1642832939-image-3.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59'),
+(16, 'tes', 'tes-1642846196-image-1.jpg', '2022-01-22 10:09:56', '2022-01-22 10:09:56'),
+(17, 'tes', 'tes-1642846196-image-2.jpg', '2022-01-22 10:09:56', '2022-01-22 10:09:56'),
+(18, 'tes', 'tes-1642846196-image-3.jpg', '2022-01-22 10:09:56', '2022-01-22 10:09:56');
 
 -- --------------------------------------------------------
 
@@ -331,7 +335,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang_img`
 --
 ALTER TABLE `barang_img`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `keranjang`

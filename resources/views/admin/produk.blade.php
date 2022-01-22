@@ -12,28 +12,20 @@
                             Filter Produk :
                             <span>
                                 <label class="fancy-radio">
-                                    <input id="semua" name="kategori" value="" type="radio" checked="checked">
+                                    <input name="kategori" value="semua" type="radio" checked="checked">
                                     <span><i></i>Semua</span>
                                 </label>
                                 <label class="fancy-radio" style="margin-left: 10px;">
-                                    <input id="kitchen-set" name="kategori" value="" type="radio">
-                                    <span><i></i>Kitchen Set</span>
+                                    <input name="kategori" value="promo" type="radio">
+                                    <span><i></i>Promo</span>
                                 </label>
                                 <label class="fancy-radio" style="margin-left: 10px;">
-                                    <input id="tempat-tidur" name="kategori" value="" type="radio">
-                                    <span><i></i>Tempat Tidur</span>
+                                    <input name="kategori" value="new" type="radio">
+                                    <span><i></i>New</span>
                                 </label>
                                 <label class="fancy-radio" style="margin-left: 10px;">
-                                    <input id="lemari" name="kategori" value="" type="radio">
-                                    <span><i></i>Lemari</span>
-                                </label>
-                                <label class="fancy-radio" style="margin-left: 10px;">
-                                    <input id="meja" name="kategori" value="" type="radio">
-                                    <span><i></i>Meja</span>
-                                </label>
-                                <label class="fancy-radio" style="margin-left: 10px;">
-                                    <input id="kursi" name="kategori" value="" type="radio">
-                                    <span><i></i>Kursi</span>
+                                    <input name="kategori" value="rekondisi" type="radio">
+                                    <span><i></i>Rekondisi</span>
                                 </label>
                             </span>
                         </div>
@@ -104,11 +96,9 @@
                         <h5>Kategori Produk :</h5>
                         <select id="tambah-kategori" name="kategori" class="form-control">
                             <option></option>
-                            <option value="kitchen_set">Kitchen Set</option>
-                            <option value="tempat_tidur">Tempat Tidur</option>
-                            <option value="lemari">Lemari</option>
-                            <option value="meja">Meja</option>
-                            <option value="kursi">Kursi</option>
+                            <option value="promo">Promo</option>
+                            <option value="new">New</option>
+                            <option value="rekondisi">Rekondisi</option>
                         </select>
                         <span id="invalid-kategori" class="invalid-text"><i>Pilih kategori produk</i></span>
 
@@ -191,11 +181,9 @@
                         <h5>Kategori Produk :</h5>
                         <select id="update-kategori" name="kategori" class="form-control">
                             <option></option>
-                            <option value="kitchen_set">Kitchen Set</option>
-                            <option value="tempat_tidur">Tempat Tidur</option>
-                            <option value="lemari">Lemari</option>
-                            <option value="meja">Meja</option>
-                            <option value="kursi">Kursi</option>
+                            <option value="promo">Promo</option>
+                            <option value="new">New</option>
+                            <option value="rekondisi">Rekondisi</option>
                         </select>
                         <span id="invalid-update-kategori" class="invalid-text"><i>Pilih kategori produk</i></span>
 

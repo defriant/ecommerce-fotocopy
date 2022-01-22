@@ -2,24 +2,10 @@
 @section('content')
 
 <div class="top-kategori">
-    <button id="all" class="btn-kategori">
-        <h5 style="font-size: 16px">Semua</b></h5>
-    </button>
-    <button id="kitchen-set" class="btn-kategori">
-        <h5 style="font-size: 16px">Kitchen Set</b></h5>
-    </button>
-    <button id="tempat-tidur" class="btn-kategori">
-        <h5 style="font-size: 16px">Tempat Tidur</b></h5>
-    </button>
-    <button id="lemari" class="btn-kategori">
-        <h5 style="font-size: 16px">Lemari</b></h5>
-    </button>
-    <button id="meja" class="btn-kategori">
-        <h5 style="font-size: 16px">Meja</b></h5>
-    </button>
-    <button id="kursi" class="btn-kategori">
-        <h5 style="font-size: 16px">Kursi</b></h5>
-    </button>
+    <button id="all" class="btn-kategori"><h5 style="font-size: 16px">Semua</b></h5></button>
+    <button id="promo" class="btn-kategori"><h5 style="font-size: 16px">Promo</b></h5></button>
+    <button id="new" class="btn-kategori"><h5 style="font-size: 16px">New</b></h5></button>
+    <button id="rekondisi" class="btn-kategori"><h5 style="font-size: 16px">Rekondisi</b></h5></button>
 </div>
 <div class="product-easy">
     <div class="container">

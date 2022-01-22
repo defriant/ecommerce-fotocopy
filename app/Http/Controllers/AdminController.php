@@ -42,33 +42,13 @@ class AdminController extends Controller
         return view('admin.produk_data', compact('data'));
     }
 
-    public function kitchen_set()
+    public function produk_data_kategori($kategori)
     {
-        $data = Barang::where('jenis', 'kitchen_set')->get();
-        return view('admin.produk_data', compact('data'));
-    }
-
-    public function tempat_tidur()
-    {
-        $data = Barang::where('jenis', 'tempat_tidur')->get();
-        return view('admin.produk_data', compact('data'));
-    }
-
-    public function lemari()
-    {
-        $data = Barang::where('jenis', 'lemari')->get();
-        return view('admin.produk_data', compact('data'));
-    }
-
-    public function meja()
-    {
-        $data = Barang::where('jenis', 'meja')->get();
-        return view('admin.produk_data', compact('data'));
-    }
-
-    public function kursi()
-    {
-        $data = Barang::where('jenis', 'kursi')->get();
+        if ($kategori == "semua") {
+            $data = Barang::all();
+        } else {
+            $data = Barang::where('jenis', $kategori)->get();
+        }
         return view('admin.produk_data', compact('data'));
     }
 

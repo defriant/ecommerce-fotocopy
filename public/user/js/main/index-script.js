@@ -72,7 +72,7 @@ $('#all').on('click', function(){
     all_item()
 })
 
-$('#kitchen-set').on('click', function(){
+$('#promo').on('click', function(){
     $('#product-data').empty();
     $('#product-loader').fadeIn(500);
     $('.btn-kategori').removeClass('active');
@@ -81,7 +81,7 @@ $('#kitchen-set').on('click', function(){
     $('.title-kategori').show();
     $.ajax({
         type:'get',
-        url:'/produk-data/kitchen-set',
+        url:'/produk-data/promo',
         success:function(data){
             $('#product-loader').hide();
             $('#product-data').html(data);
@@ -91,16 +91,16 @@ $('#kitchen-set').on('click', function(){
     });
 })
 
-$('#tempat-tidur').on('click', function(){
+$('#new').on('click', function(){
     $('#product-data').empty();
     $('#product-loader').fadeIn(500);
     $('.btn-kategori').removeClass('active');
     $(this).addClass('active');
-    $('.title-kategori h3 b').html('Tempat Tidur')
+    $('.title-kategori h3 b').html('Kitchen Set')
     $('.title-kategori').show();
     $.ajax({
         type:'get',
-        url:'/produk-data/tempat-tidur',
+        url:'/produk-data/new',
         success:function(data){
             $('#product-loader').hide();
             $('#product-data').html(data);
@@ -110,54 +110,16 @@ $('#tempat-tidur').on('click', function(){
     });
 })
 
-$('#lemari').on('click', function(){
+$('#rekondisi').on('click', function(){
     $('#product-data').empty();
     $('#product-loader').fadeIn(500);
     $('.btn-kategori').removeClass('active');
     $(this).addClass('active');
-    $('.title-kategori h3 b').html('Lemari')
+    $('.title-kategori h3 b').html('Kitchen Set')
     $('.title-kategori').show();
     $.ajax({
         type:'get',
-        url:'/produk-data/lemari',
-        success:function(data){
-            $('#product-loader').hide();
-            $('#product-data').html(data);
-            tambah_keranjang()
-            history.pushState('', '', '/');
-        }
-    });
-})
-
-$('#meja').on('click', function(){
-    $('#product-data').empty();
-    $('#product-loader').fadeIn(500);
-    $('.btn-kategori').removeClass('active');
-    $(this).addClass('active');
-    $('.title-kategori h3 b').html('Meja')
-    $('.title-kategori').show();
-    $.ajax({
-        type:'get',
-        url:'/produk-data/meja',
-        success:function(data){
-            $('#product-loader').hide();
-            $('#product-data').html(data);
-            tambah_keranjang()
-            history.pushState('', '', '/');
-        }
-    });
-})
-
-$('#kursi').on('click', function(){
-    $('#product-data').empty();
-    $('#product-loader').fadeIn(500);
-    $('.btn-kategori').removeClass('active');
-    $(this).addClass('active');
-    $('.title-kategori h3 b').html('Kursi')
-    $('.title-kategori').show();
-    $.ajax({
-        type:'get',
-        url:'/produk-data/kursi',
+        url:'/produk-data/rekondisi',
         success:function(data){
             $('#product-loader').hide();
             $('#product-data').html(data);
