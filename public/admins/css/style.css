@@ -1,0 +1,281 @@
+.logo {
+    width: 100px;
+}
+
+.produk-tools {
+    display: flex;
+}
+
+.produk-tools span {
+    position: relative;
+    left: 8px;
+    top: 2px;
+    display: flex;
+}
+
+.produk-tools-right {
+    text-align: right;
+    display: flex;
+}
+
+.produk-gambar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.produk-gambar .gambar-preview {
+    width: 130px;
+    height: 130px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2rem;
+}
+
+.gambar-input {
+    color: white;
+    background: rgb(255, 127, 80);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s;
+}
+
+.gambar-input:hover {
+    background: rgb(255, 92, 33);
+    transition: 0.5s;
+}
+
+.invalid {
+    border: 1px solid red !important;
+}
+
+.invalid-text {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+::-webkit-file-upload-button {
+    color: white;
+    background: rgb(255, 191, 15);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Pesanan style */
+
+.pesanan-title {
+    color: #999;
+    text-align: left;
+}
+
+.pesanan-list {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.panel-head {
+    display: flex;
+    margin-left: 18px;
+}
+
+.pesanan-item {
+    margin-top: 25px;
+    display: flex;
+    padding-right: 10px
+}
+
+.pesanan-harga {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 1px solid rgb(202, 202, 202);
+}
+
+.pesanan-harga-hr {
+    display: none;
+}
+
+.btn-konfirmasi-transaksi {
+    margin-top: 30px;
+    margin-right: 10px;
+    background: white;
+    border: none;
+}
+
+.btn-batal-transaksi {
+    margin-left: 10px;
+    background: white;
+    border: none;
+}
+
+.owner-produk {
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.produk-teratas-img {
+    width: 100%;
+    height: 170px;
+}
+
+.produk-img {
+    width: 100%;
+    height: 260px;
+}
+
+.owner-produk-text h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-link {
+    font-size: 20px;
+    padding-top: 5px;
+    margin-right: 12px;
+    color: #999;
+    border-right: 2px solid #999;
+    padding-right: 12px;
+    transition: .2s;
+}
+
+.header-link:hover {
+    transition: .2s;
+    color: #00AAFF;
+}
+
+@media (max-width: 1500px) {
+    .produk-teratas-img {
+        height: 50%;
+    }
+
+    .produk-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .produk-img {
+        height: 170px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .produk-img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .produk-img {
+        height: 230px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .produk-tools-right {
+        margin-top: 25px;
+    }
+}
+
+@media (max-width: 991px) {
+    .pesanan-harga {
+        margin-top: 20px;
+        padding: 0;
+        border-left: none;
+    }
+
+    .pesanan-harga-hr {
+        border: none;
+        height: 1px;
+        background-color: rgb(202, 202, 202);
+        display: flex;
+    }
+}
+
+/* Loader */
+@keyframes ldio-c34g0uje79h {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.ldio-c34g0uje79h div {
+    box-sizing: border-box !important
+}
+
+.ldio-c34g0uje79h>div {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    top: 14px;
+    left: 14px;
+    border-radius: 50%;
+    border: 8px solid rgb(0, 153, 255);
+    border-color: rgb(0, 153, 255) transparent rgb(0, 153, 255) transparent;
+    animation: ldio-c34g0uje79h 1s linear infinite;
+}
+
+.ldio-c34g0uje79h>div:nth-child(2) {
+    border-color: transparent
+}
+
+.ldio-c34g0uje79h>div:nth-child(2) div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+}
+
+.ldio-c34g0uje79h>div:nth-child(2) div:before,
+.ldio-c34g0uje79h>div:nth-child(2) div:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: -8px;
+    left: 24px;
+    background: rgb(0, 153, 255);
+    border-radius: 50%;
+    box-shadow: 0 64px 0 0 rgb(0, 153, 255);
+}
+
+.ldio-c34g0uje79h>div:nth-child(2) div:after {
+    left: -8px;
+    top: 24px;
+    box-shadow: 64px 0 0 0 rgb(0, 153, 255);
+}
+
+.loadingio-spinner-dual-ring-r5iq5osejl {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.ldio-c34g0uje79h {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(0.64);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+    /* see note above */
+}
+
+.ldio-c34g0uje79h div {
+    box-sizing: content-box;
+}
