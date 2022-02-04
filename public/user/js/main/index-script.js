@@ -77,7 +77,7 @@ $('#promo').on('click', function(){
     $('#product-loader').fadeIn(500);
     $('.btn-kategori').removeClass('active');
     $(this).addClass('active');
-    $('.title-kategori h3 b').html('Kitchen Set')
+    $('.title-kategori h3 b').html('Promo')
     $('.title-kategori').show();
     $.ajax({
         type:'get',
@@ -96,7 +96,7 @@ $('#new').on('click', function(){
     $('#product-loader').fadeIn(500);
     $('.btn-kategori').removeClass('active');
     $(this).addClass('active');
-    $('.title-kategori h3 b').html('Kitchen Set')
+    $('.title-kategori h3 b').html('New')
     $('.title-kategori').show();
     $.ajax({
         type:'get',
@@ -115,7 +115,7 @@ $('#rekondisi').on('click', function(){
     $('#product-loader').fadeIn(500);
     $('.btn-kategori').removeClass('active');
     $(this).addClass('active');
-    $('.title-kategori h3 b').html('Kitchen Set')
+    $('.title-kategori h3 b').html('Rekondisi')
     $('.title-kategori').show();
     $.ajax({
         type:'get',
@@ -128,188 +128,6 @@ $('#rekondisi').on('click', function(){
         }
     });
 })
-
-$('#custom-pesanan').on('click', function(){
-    $('#product-data').empty();
-    $('#product-loader').fadeIn(500);
-    $('.btn-kategori').removeClass('active');
-    $(this).addClass('active');
-    $('.title-kategori h3 b').html('Custom Pesanan')
-    $('.title-kategori').show();
-    $.ajax({
-        type:'get',
-        url:'/custom-pesanan',
-        success:function(data){
-            $('#product-loader').hide();
-            $('#product-data').html(data);
-            persyaratan_check();
-            no_telp();
-            $('.carousel').carousel('pause');
-            $('#kategori-barang').on('input', function(){
-                $('#ukuran').empty();
-                $('#ukuran-loader').show();
-                var kategori = ($(this).val());
-                if (kategori == 'kitchen-set') {
-                    $.ajax({
-                        type:'get',
-                        url:'/custom-kitchen-set',
-                        success:function(data){
-                            $('#ukuran-loader').hide();
-                            $('#ukuran').html(data)
-                            ukuran_kitchen_set()
-                        }
-                    });
-                } else {
-                    $('#ukuran').empty();
-                    $('#ukuran-loader').show();
-                    $.ajax({
-                        type:'get',
-                        url:'/custom-dll',
-                        success:function(data){
-                            $('#ukuran-loader').hide();
-                            $('#ukuran').html(data)
-                            ukuran_dll()
-                        }
-                    });
-                }
-            })
-            history.pushState('', '', '/');
-        }
-    });
-})
-
-function ukuran_kitchen_set(){
-    $('#jumlah-tambah-panjang').on('click', function(){
-        var jumlah = parseFloat($('#jumlah-panjang').val());
-        var total = jumlah + 0.01;
-        $('#jumlah-panjang').val(total.toFixed(2))
-        total_harga()
-    })
-
-    $('#jumlah-kurang-panjang').on('click', function(){
-        var jumlah = parseFloat($('#jumlah-panjang').val());
-        var total = jumlah - 0.01;
-        if (jumlah == 0.0) {
-            $('#jumlah-panjang').val(0);
-            total_harga()
-        }else{
-            $('#jumlah-panjang').val(total.toFixed(2))
-            total_harga()
-        }
-    })
-
-    $('#jumlah-panjang').on('input', function(){
-        total_harga();
-    })
-
-    function total_harga(){
-        var panjang = parseFloat($('#jumlah-panjang').val());
-        if ($('#jumlah-panjang').val().length > 0) {
-            var total = panjang * 2000000;
-            $('#total-harga').val(numberWithCommas(total.toFixed(0)));
-        }else{
-            $('#total-harga').val(0);
-        }
-        
-    }
-
-    function numberWithCommas(x) {
-        x = x.toString();
-        var pattern = /(-?\d+)(\d{3})/;
-        while (pattern.test(x))
-            x = x.replace(pattern, "$1,$2");
-        return x;
-    }
-}
-
-function ukuran_dll(){
-    $('#jumlah-tambah-panjang').on('click', function(){
-        var jumlah = parseFloat($('#jumlah-panjang').val());
-        var total = jumlah + 0.01;
-        $('#jumlah-panjang').val(total.toFixed(2))
-        total_harga()
-    })
-
-    $('#jumlah-kurang-panjang').on('click', function(){
-        var jumlah = parseFloat($('#jumlah-panjang').val());
-        var total = jumlah - 0.01;
-        if (jumlah == 0.0) {
-            $('#jumlah-panjang').val(0);
-            total_harga()
-        }else{
-            $('#jumlah-panjang').val(total.toFixed(2))
-            total_harga()
-        }
-    })
-
-    $('#jumlah-panjang').on('input', function(){
-        total_harga();
-    })
-
-    function total_harga(){
-        var panjang = parseFloat($('#jumlah-panjang').val());
-        var lebar = parseFloat($('#jumlah-lebar').val());
-        if ($('#jumlah-panjang').val().length > 0 && $('#jumlah-lebar').val().length > 0) {
-            var total = ((panjang * lebar) * 2000000);
-            $('#total-harga').val(numberWithCommas(total.toFixed(0)));
-        }else{
-            $('#total-harga').val(0);
-        }
-        
-    }
-
-    function numberWithCommas(x) {
-        x = x.toString();
-        var pattern = /(-?\d+)(\d{3})/;
-        while (pattern.test(x))
-            x = x.replace(pattern, "$1,$2");
-        return x;
-    }
-
-    $('#jumlah-tambah-lebar').on('click', function(){
-        var jumlah = parseFloat($('#jumlah-lebar').val());
-        var total = jumlah + 0.01;
-        $('#jumlah-lebar').val(total.toFixed(2))
-        total_harga();
-    })
-
-    $('#jumlah-kurang-lebar').on('click', function(){
-        var jumlah = parseFloat($('#jumlah-lebar').val());
-        var total = jumlah - 0.01;
-        if (jumlah == 0.0) {
-            $('#jumlah-lebar').val(0);
-            total_harga()
-        }else{
-            $('#jumlah-lebar').val(total.toFixed(2))
-            total_harga()
-        }
-    })
-
-    $('#jumlah-lebar').on('input', function(){
-        total_harga();
-    })
-}
-
-function validate_ukuran(evt,id)
-{
-	try{
-        var charCode = (evt.which) ? evt.which : event.keyCode;
-
-        if(charCode==46){
-            var txt=document.getElementById(id).value;
-            if(!(txt.indexOf(".") > -1)){
-	
-                return true;
-            }
-        }
-        if (charCode > 31 && (charCode < 48 || charCode > 57) )
-            return false;
-
-        return true;
-	}catch(w){
-		alert(w);
-	}
-}
 
 function view_produk(url){
     $('#product-data').empty();
@@ -329,26 +147,6 @@ function view_produk(url){
     })
     return false;
 }
-
-// function item_view(){
-//     $('.thumb-item').on('click', function(){
-//         $('#product-data').empty();
-//         $('#product-loader').fadeIn(500);
-//         var url = $(this).data("href");
-//         $.ajax({
-//             type:'post',
-//             url:url,
-//             success:function(data){
-//                 $('#product-loader').hide();
-//                 $('.title-kategori').hide();
-//                 $('.btn-kategori').removeClass('active');
-//                 $('#product-data').html(data);
-//                 view_script();
-//                 history.pushState('', '', url);
-//             }
-//         })
-//     });
-// }
 
 function tambah_keranjang(){
     $('.tambah-keranjang').on('click', function(){
