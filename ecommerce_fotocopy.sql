@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jan 2022 pada 11.18
+-- Waktu pembuatan: 04 Feb 2022 pada 16.40
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -47,8 +47,7 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`id`, `jenis`, `nama`, `harga`, `stock`, `gambar`, `deskripsi`, `terjual`, `dilihat`, `created_at`, `updated_at`) VALUES
 ('furniture', 'promo', 'Furniture', 10000000, 3, 'furniture-1642788480-image-1.jpg', 'asdfghjkl', 2, 8, '2022-01-21 18:08:00', '2022-01-22 10:09:00'),
-('furniture-2', 'rekondisi', 'Furniture', 20000000, 2, 'furniture-2-1642832939-image-1.jpg', 'Qwerty', 2, 6, '2022-01-22 06:28:59', '2022-01-22 10:16:41'),
-('tes', 'new', 'Tes', 15000000, 3, 'tes-1642846196-image-1.jpg', 'asdfgh', 0, 0, '2022-01-22 10:09:56', '2022-01-22 10:09:56');
+('furniture-2', 'rekondisi', 'Furniture', 20000000, 2, 'furniture-2-1642832939-image-1.jpg', 'Qwerty', 2, 6, '2022-01-22 06:28:59', '2022-01-22 10:16:41');
 
 -- --------------------------------------------------------
 
@@ -74,10 +73,7 @@ INSERT INTO `barang_img` (`id`, `id_barang`, `gambar`, `created_at`, `updated_at
 (12, 'furniture', 'furniture-1642788480-image-3.jpg', '2022-01-21 18:08:00', '2022-01-21 18:08:00'),
 (13, 'furniture-2', 'furniture-2-1642832939-image-1.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59'),
 (14, 'furniture-2', 'furniture-2-1642832939-image-2.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59'),
-(15, 'furniture-2', 'furniture-2-1642832939-image-3.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59'),
-(16, 'tes', 'tes-1642846196-image-1.jpg', '2022-01-22 10:09:56', '2022-01-22 10:09:56'),
-(17, 'tes', 'tes-1642846196-image-2.jpg', '2022-01-22 10:09:56', '2022-01-22 10:09:56'),
-(18, 'tes', 'tes-1642846196-image-3.jpg', '2022-01-22 10:09:56', '2022-01-22 10:09:56');
+(15, 'furniture-2', 'furniture-2-1642832939-image-3.jpg', '2022-01-22 06:28:59', '2022-01-22 06:28:59');
 
 -- --------------------------------------------------------
 
@@ -155,25 +151,6 @@ CREATE TABLE `notifikasi` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `notifikasi`
---
-
-INSERT INTO `notifikasi` (`id`, `user_id`, `jenis`, `notif`, `url`, `is_read`, `created_at`, `updated_at`) VALUES
-(222, '36', 'pesanan', 'Pesananmu telah dikonfirmasi oleh admin', '/pesanan/3601224207', 1, '2022-01-21 18:17:10', '2022-01-22 08:03:26'),
-(223, '36', 'pembayaran', 'Pembayaran telah divalidasi', '/pesanan/3601224207', 1, '2022-01-21 18:18:48', '2022-01-22 08:03:26'),
-(224, '36', 'pesanan', 'Pesananmu sedang dikirim ke Bekasi', '/pesanan/3601224207', 1, '2022-01-21 18:18:56', '2022-01-22 08:03:26'),
-(225, '36', 'pesanan', 'Pesananmu telah tiba di tujuan, pesanan selesai', '/pesanan/3601224207', 1, '2022-01-21 18:19:04', '2022-01-22 08:03:26'),
-(226, '36', 'pesanan', 'Pesananmu telah dikonfirmasi oleh admin', '/pesanan/3601227458', 1, '2022-01-21 19:33:43', '2022-01-22 08:03:26'),
-(227, '36', 'pembayaran', 'Pembayaran telah divalidasi', '/pesanan/3601227458', 1, '2022-01-21 19:34:45', '2022-01-22 08:03:26'),
-(228, '36', 'pesanan', 'Pesananmu sedang dikirim ke Bekasi', '/pesanan/3601227458', 1, '2022-01-21 19:34:59', '2022-01-22 08:03:26'),
-(229, '36', 'pesanan', 'Pesananmu telah tiba di tujuan, pesanan selesai', '/pesanan/3601227458', 1, '2022-01-21 19:35:10', '2022-01-22 08:03:26'),
-(230, '36', 'pesanan', 'Pesananmu telah dikonfirmasi oleh admin', '/pesanan/3601221086', 1, '2022-01-22 07:31:11', '2022-01-22 08:03:26'),
-(231, '36', 'pesanan', 'Pesananmu telah dikonfirmasi oleh admin', '/pesanan/3601221720', 1, '2022-01-22 07:53:26', '2022-01-22 08:03:26'),
-(232, '36', 'pembayaran', 'Pembayaran telah divalidasi', '/pesanan/3601221720', 1, '2022-01-22 08:03:04', '2022-01-22 08:03:26'),
-(233, '36', 'pesanan', 'Pesananmu sedang dikirim ke Bekasi', '/pesanan/3601221720', 1, '2022-01-22 08:03:13', '2022-01-22 08:03:26'),
-(234, '36', 'pesanan', 'Pesananmu telah tiba di tujuan, pesanan selesai', '/pesanan/3601221720', 1, '2022-01-22 08:03:20', '2022-01-22 08:03:26');
-
 -- --------------------------------------------------------
 
 --
@@ -200,15 +177,6 @@ CREATE TABLE `pesanan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `pesanan`
---
-
-INSERT INTO `pesanan` (`id`, `user_id`, `nama`, `telp`, `alamat`, `ongkir`, `total`, `status`, `konfirmasi`, `menunggu_validasi`, `validasi`, `pengiriman`, `tiba_di_tujuan`, `bukti_pembayaran`, `alasan_batal`, `created_at`, `updated_at`) VALUES
-('3601221086', '36', 'Tes', '12333', 'Bekasi', 200000, 20200000, 'konfirmasi', '2022-01-22 14:31:11', NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-22 07:00:20', '2022-01-22 07:31:11'),
-('3601221720', '36', 'Tes', '12333', 'Bekasi', 250000, 20250000, 'selesai', '2022-01-22 14:53:26', '2022-01-22 15:02:44', '2022-01-22 15:03:04', '2022-01-22 15:03:13', '2022-01-22 15:03:20', 'contoh_3601221720.jpg', NULL, '2022-01-22 07:33:41', '2022-01-22 08:03:20'),
-('3601227458', '36', 'Tes', '12333', 'Bekasi', NULL, 10000000, 'selesai', '2022-01-22 02:33:43', '2022-01-22 02:34:36', '2022-01-22 02:34:45', '2022-01-22 02:34:59', '2022-01-22 02:35:10', 'contoh_2606081378_3601227458.jpg', NULL, '2022-01-21 19:33:34', '2022-01-21 19:35:10');
-
 -- --------------------------------------------------------
 
 --
@@ -229,15 +197,6 @@ CREATE TABLE `pesanan_barang` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `pesanan_barang`
---
-
-INSERT INTO `pesanan_barang` (`id`, `pesanan_id`, `barang_id`, `nama`, `harga`, `jumlah`, `total`, `gambar`, `url`, `terjual`, `created_at`, `updated_at`) VALUES
-(147, '3601227458', 'furniture', 'Furniture', '10000000', 1, '10000000', 'furniture-1642788480-image-1.jpg', '/produk/furniture', 'terjual', '2022-01-21 19:33:34', '2022-01-21 19:34:45'),
-(148, '3601221086', 'furniture-2', 'Furniture', '20000000', 1, '20000000', 'furniture-2-1642832939-image-1.jpg', '/produk/furniture-2', NULL, '2022-01-22 07:00:20', '2022-01-22 07:00:20'),
-(149, '3601221720', 'furniture-2', 'Furniture', '20000000', 1, '20000000', 'furniture-2-1642832939-image-1.jpg', '/produk/furniture-2', 'terjual', '2022-01-22 07:33:41', '2022-01-22 08:03:04');
 
 -- --------------------------------------------------------
 
@@ -265,8 +224,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `telp`, `alamat`, `email`, `image`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(30, 'Admin', '081313131313', 'Bekasi Utara', 'admin@admin.com', NULL, NULL, '$2y$10$8zGFQ2nSWPE07QFBxjQqlul3DuSrTn/sp7.x.k5wcXH6Vwb6XXRda', 'admin', NULL, '2021-05-26 07:51:19', '2021-05-26 07:51:19'),
-(36, 'Tes', '12333', 'Bekasi', 'tes@tes.com', NULL, NULL, '$2y$10$FJAybp6ON1p6neCR/OWSpOuKCOeTB2Vz7cq.o53Y/qNSVJRVYRXIm', 'user', NULL, '2022-01-19 15:29:16', '2022-01-19 15:29:16');
+(30, 'Admin', '081313131313', 'Bekasi Utara', 'admin@admin.com', NULL, NULL, '$2y$10$8zGFQ2nSWPE07QFBxjQqlul3DuSrTn/sp7.x.k5wcXH6Vwb6XXRda', 'admin', NULL, '2021-05-26 07:51:19', '2021-05-26 07:51:19');
 
 --
 -- Indexes for dumped tables
