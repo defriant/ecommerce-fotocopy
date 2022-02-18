@@ -41,7 +41,7 @@
                         <div class="col-md-8">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">Rp</span>
-                                <input type="number" id="ongkir" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                                <input type="text" id="ongkir" class="form-control input-number currency-input" placeholder="" aria-describedby="basic-addon1">
                             </div>
                         </div>
                     </div>

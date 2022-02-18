@@ -64,11 +64,11 @@
             <div class="modal-body">
                 <form id="form-tambah-produk" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                    <input type="hidden" id="tambah-gambar-default" value="{{ asset('user/images/no_image.png') }}">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="produk-gambar">
-                                <div id="tambah-gambar-preview-1" class="gambar-preview" style="background-image: url('{{ asset('user/barang_img/no_image.png') }}')"></div>
+                                <div id="tambah-gambar-preview-1" class="gambar-preview" style="background-image: url('{{ asset('user/images/no_image.png') }}')"></div>
                                 <h5 id="invalid-gambar-1" class="invalid-text" style="margin-top: -10px"><i>Pilih gambar produk</i></h5>
                                 <input type="button" value="Pilih Gambar" class="gambar-input" style="text-align: center; margin: auto" onclick="document.getElementById('tambah-gambar-input-1').click()">
                                 <input type="file" id="tambah-gambar-input-1" name="gambar_1" style="display: none;">
@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="produk-gambar">
-                                <div id="tambah-gambar-preview-2" class="gambar-preview" style="background-image: url('{{ asset('user/barang_img/no_image.png') }}')"></div>
+                                <div id="tambah-gambar-preview-2" class="gambar-preview" style="background-image: url('{{ asset('user/images/no_image.png') }}')"></div>
                                 <h5 id="invalid-gambar-2" class="invalid-text" style="margin-top: -10px"><i>Pilih gambar produk</i></h5>
                                 <input type="button" value="Pilih Gambar" class="gambar-input" style="text-align: center; margin: auto" onclick="document.getElementById('tambah-gambar-input-2').click()">
                                 <input type="file" id="tambah-gambar-input-2" name="gambar_2" style="display: none;">
@@ -84,7 +84,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="produk-gambar">
-                                <div id="tambah-gambar-preview-3" class="gambar-preview" style="background-image: url('{{ asset('user/barang_img/no_image.png') }}')"></div>
+                                <div id="tambah-gambar-preview-3" class="gambar-preview" style="background-image: url('{{ asset('user/images/no_image.png') }}')"></div>
                                 <h5 id="invalid-gambar-2" class="invalid-text" style="margin-top: -10px"><i>Pilih gambar produk</i></h5>
                                 <input type="button" value="Pilih Gambar" class="gambar-input" style="text-align: center; margin: auto" onclick="document.getElementById('tambah-gambar-input-3').click()">
                                 <input type="file" id="tambah-gambar-input-3" name="gambar_3" style="display: none;">
@@ -156,21 +156,21 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="produk-gambar">
-                                <div id="update-gambar-preview-1" class="gambar-preview" style="background-image: url('{{ asset('user/barang_img/no_image.png') }}')"></div>
+                                <div id="update-gambar-preview-1" class="gambar-preview" style="background-image: url('')"></div>
                                 <input type="button" value="Pilih Gambar" class="gambar-input" style="text-align: center; margin: auto" onclick="document.getElementById('update-gambar-input-1').click()">
                                 <input type="file" id="update-gambar-input-1" name="gambar_1" style="display: none;">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="produk-gambar">
-                                <div id="update-gambar-preview-2" class="gambar-preview" style="background-image: url('{{ asset('user/barang_img/no_image.png') }}')"></div>
+                                <div id="update-gambar-preview-2" class="gambar-preview" style="background-image: url('')"></div>
                                 <input type="button" value="Pilih Gambar" class="gambar-input" style="text-align: center; margin: auto" onclick="document.getElementById('update-gambar-input-2').click()">
                                 <input type="file" id="update-gambar-input-2" name="gambar_2" style="display: none;">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="produk-gambar">
-                                <div id="update-gambar-preview-3" class="gambar-preview" style="background-image: url('{{ asset('user/barang_img/no_image.png') }}')"></div>
+                                <div id="update-gambar-preview-3" class="gambar-preview" style="background-image: url('')"></div>
                                 <input type="button" value="Pilih Gambar" class="gambar-input" style="text-align: center; margin: auto" onclick="document.getElementById('update-gambar-input-3').click()">
                                 <input type="file" id="update-gambar-input-3" name="gambar_3" style="display: none;">
                             </div>

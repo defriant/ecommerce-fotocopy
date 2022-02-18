@@ -86,7 +86,7 @@
                     <ul>
                         <li>
                             <h5 style="font-size: 12px; margin-bottom: 7px;">Lakukan pembayaran transfer melalui rekening bank.</h5>
-                            <h5 style="font-size: 12px; margin-bottom: 7px;">BCA   : 673-7354-8756-264 (A.N CV. Tujuh Samudra)</h5>
+                            <h5 style="font-size: 12px; margin-bottom: 7px;">BCA   : 673-7354-8756-264 (A.N PT. UBJA)</h5>
                         </li>
                         <li>
                             <h5 style="font-size: 12px; margin-bottom: 7px;">Screenshot atau foto bukti pembayaran.</h5>

@@ -125,7 +125,7 @@
     position: absolute;
     z-index: 1000;
     top: 63px;
-    right: 85px;
+    right: 52px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     border-top: 2px solid coral;
@@ -185,7 +185,7 @@
     overflow: auto;
     z-index: 1000;
     top: 63px;
-    right: 125px;
+    right: 94px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     border-top: 2px solid coral;

@@ -33,6 +33,7 @@
                     <div class="info-product-price">
                         <span class="item_price">Rp {{ number_format($d->harga) }}</span>
                     </div>
+                    <p style="color: #999; margin: 1rem 0">Stok tersisa {{ $d->stock }}</p>
                     @guest
                         <a href="#" class="item_add single-item hvr-outline-out button2" data-toggle="modal" data-target="#myModal4">Add to cart</a>
                     @endguest

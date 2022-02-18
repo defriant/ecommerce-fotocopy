@@ -194,6 +194,13 @@ class AdminController extends Controller
         $data_pesanan = Pesanan::find($id);
         $user_id = $data_pesanan->user_id;
 
+        // foreach ($data_pesanan->pesananbarang as $pb) {
+        //     $data_barang = Barang::find($pb->barang_id);
+        //     if ($data_barang->stock < $pb->jumlah) {
+
+        //     }
+        // }
+
         Pesanan::where('id', $id)->update([
             'ongkir' => $request->ongkir,
             'total' => $data_pesanan->total + $request->ongkir,
@@ -468,5 +475,40 @@ class AdminController extends Controller
     {
         $pesanan = Pesanan::where('id', 'like', "%" . $id . "%")->orderByDesc('created_at')->get();
         return view('admin.semua-transaksi-data', compact('pesanan'));
+    }
+
+    public function get_laporan_transaksi(Request $request)
+    {
+        $data = Pesanan::whereMonth('created_at', date('m', strtotime($request->periode)))->whereYear('created_at', date('Y', strtotime($request->periode)))->where('status', 'selesai');
+        $transaksi = $data->get();
+        $transaksiData = [];
+        $pendapatan = "Rp " . number_format($data->sum('total'));
+        $terjual = 0;
+
+        foreach ($transaksi as $t) {
+            $terjual = $terjual + $t->pesananBarang->sum('jumlah');
+
+            $harga = 0;
+            foreach ($t->pesananBarang as $pb) {
+                $harga = $harga + ($pb->harga * $pb->jumlah);
+            }
+
+            $transaksiData[] = [
+                "id" => $t->id,
+                "nama" => $t->nama,
+                "tanggal" => date('d/m/Y', strtotime($t->created_at)),
+                "jumlah_unit" => $t->pesananBarang->sum('jumlah'),
+                "harga" => "Rp " . number_format($harga),
+                "ongkir" => "Rp " . number_format($t->ongkir),
+                "total" => "Rp " . number_format($t->total)
+            ];
+        }
+
+        $response = [
+            "transaksi" => $transaksiData,
+            "pendapatan" => $pendapatan,
+            "terjual" => $terjual
+        ];
+        return response()->json($response);
     }
 }

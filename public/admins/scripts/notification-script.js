@@ -28,6 +28,7 @@ channel.bind('custom-konfirmasi-pesanan-event', function() {
         url:'/admin/custom-pesanan/menunggu-konfirmasi-data',
         success:function(data){
             $('#custom-menunggu-konfirmasi-data').html(data)
+            currencyInput()
             toastr.options = {
                 "timeOut": "5000",
             }

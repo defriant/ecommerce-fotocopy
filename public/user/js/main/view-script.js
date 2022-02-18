@@ -3,9 +3,13 @@ $(window).on('load', function(){
 })
 
 function view_script(){
+    let stok_produk = parseInt($('#stok-produk').val())
     $('#jumlah-tambah').on('click', function(){
+        var jumlah = parseInt($('#jumlah').val()) + 1;
         if ($('#jumlah').val().length == 0) {
             $('#jumlah').val(1);
+        }else if (jumlah > stok_produk) {
+            $('#jumlah').val(stok_produk);
         }else {
             var jumlah = parseInt($('#jumlah').val());
             $('#jumlah').val(jumlah + 1);
@@ -30,7 +34,9 @@ function view_script(){
     $('#jumlah').on('input', function(){
         var jumlah = parseInt($('#jumlah').val());
         if (jumlah < 1) {
-            $('#jumlah').val('1');
+            $('#jumlah').val(1);
+        }else if (jumlah > stok_produk) {
+            $('#jumlah').val(stok_produk);
         }
     })
 

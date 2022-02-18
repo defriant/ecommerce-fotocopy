@@ -54,6 +54,7 @@
         if ($('#ongkir').val().length == 0) {
             $('#ongkir').parent().addClass('invalid')
         }else{
+            let ongkir = parseInt($('#ongkir').val().replaceAll('.', ''))
             $.ajax({
                 type:'post',
                 url:'/admin/pesanan/konfirmasi/'+id,
@@ -61,7 +62,7 @@
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content')
                 },
                 data:{
-                    "ongkir": $('#ongkir').val()
+                    "ongkir": ongkir
                 },
                 success:function(data){
                     notification_badge()

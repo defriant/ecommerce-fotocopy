@@ -26,7 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Main CSS -->
     <link href="{{ asset('user/css/vendor.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ asset('user/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('admins/img/favicon.png') }}">
 </head>
 
 <body>
@@ -51,12 +51,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-3 header-right footer-bottom">
                 @auth
                 <ul>
+                    <li><a href="/" class="right-menu" title="Beranda"><i class="far fa-home"></i></a>
+                    </li>
                     <li><a href="/pesanan" class="right-menu" title="Pesanan"><i class="far fa-shopping-bag"></i></a>
                     </li>
                     <li id="keranjang">
                         @if (Auth::user()->keranjang()->count() > 0)
                         <span id="badge-keranjang"
-                            class="badge badge-primary badge-notif">{{ Auth::user()->keranjang()->count() }}</span>
+                            class="badge badge-primary badge-notif">{{ Auth::user()->keranjang()->sum('jumlah') }}</span>
                         @endif
                         <a href="/keranjang" class="right-menu" title="Keranjang"><i
                                 class="far fa-shopping-cart"></i></a>
@@ -148,41 +150,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-info">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    <button type="button" id="close-myModal4" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body modal-spa">
-                    <div class="login-grids">
-                        <div class="login">
-                            <div class="login-right">
-                                <h3>Sign in with your account</h3>
-                                <form id="form-sign-in">
-                                    <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-                                    <div class="sign-in">
-                                        <h4>Email :</h4>
-                                        <input id="account-email" type="text" class="" style="color: black">
-                                        <span id="account-invalid" class="helper-text"
-                                            style="color: red; display: none;"><i>Email atau password salah</i></span>
-                                    </div>
-                                    <div class="sign-in">
-                                        <h4>Password :</h4>
-                                        <input id="account-password" type="password" class="" style="color: black">
-                                        {{-- <a href="#">Forgot password?</a> --}}
-                                    </div>
-                                    <div class="single-bottom">
-                                        {{--  --}}
-                                    </div>
-                                    <div class="sign-in">
-                                        <button id="btn-sign-in" class="btn-sign-in" type="submit"><i
-                                                id="sign-in-loading" class="far fa-spinner fa-spin"
-                                                style="margin-right: 5px; display: none;"></i>SIGN IN</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy
-                                Policy</a></p>
+                    <div class="login-grids" id="login-content">
+                        
                     </div>
                 </div>
             </div>
@@ -201,6 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="{{ asset('admins/vendor/toastr/toastr.min.js') }}"></script>
 
     <!-- Main JS -->
+    <script src="{{ asset('user/js/main/fpComponent.js') }}"></script>
     <script src="{{ asset('user/js/main/script.js') }}"></script>
     <script src="{{ asset('user/js/main/regis.js') }}"></script>
     <script src="{{ asset('user/js/main/detail-pesanan-script.js') }}"></script>

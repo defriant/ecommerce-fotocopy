@@ -68,6 +68,7 @@ $('#tambah-gambar-input-3').on('change', function(){
 })
 
 // Proses tambah produk
+let gambar_default = $('#tambah-gambar-default').val();
 $('#form-tambah-produk').submit(function(e){
     e.preventDefault();
     if ($('#tambah-gambar-input-1').val().length == 0) {
@@ -99,7 +100,6 @@ $('#form-tambah-produk').submit(function(e){
         $('#btn-tambah-produk').hide();
         $('#modal-tambah-close').hide();
         var nama_produk = $('#tambah-nama').val();
-        var gambar_default = $('#tambah-gambar-preview').data('src');
         var form_data = new FormData($(this)[0]);
         $.ajax({
             type:'POST',
@@ -110,7 +110,9 @@ $('#form-tambah-produk').submit(function(e){
             success:function(result){
                 produk_data();
                 $('#modal-tambah-close').click();
-                $('#tambah-gambar-preview').attr('src', gambar_default);
+                $('#tambah-gambar-preview-1').attr('src', gambar_default);
+                $('#tambah-gambar-preview-2').attr('src', gambar_default);
+                $('#tambah-gambar-preview-3').attr('src', gambar_default);
                 $('#btn-tambah-produk').show();
                 $('#modal-tambah-close').show();
                 $('#tambah-loading').hide();

@@ -41,6 +41,7 @@
                 @if ($data->stock > 0)
                 <span class="stock">READY STOCK</span>
                 <span style="font-size: 15px; padding-left: 7px;">{{ $data->stock }} Unit</span>
+                <input type="hidden" id="stok-produk" value="{{ $data->stock }}">
                 @else
                 <span class="no-stock">STOK HABIS</span>
                 @endif

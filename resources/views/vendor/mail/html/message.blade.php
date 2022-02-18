@@ -21,7 +21,7 @@
 {{-- Footer --}}
 @slot('footer')
 @component('mail::footer')
-© {{ date('Y') }} UD. Mandika Technik Makmur
+© {{ date('Y') }} PT Usaha Bersama Jaya Abadi
 @endcomponent
 @endslot
 @endcomponent

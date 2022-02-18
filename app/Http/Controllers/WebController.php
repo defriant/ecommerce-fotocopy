@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Barang;
-use App\Models\Keranjang;
-use App\Models\Pesanan;
-use App\Models\PesananBarang;
-use App\Models\Notifikasi;
-use Pusher\Pusher;
 use Auth;
+use Pusher\Pusher;
+use App\Models\User;
+use App\Models\Barang;
+use App\Models\Pesanan;
+use App\Models\Keranjang;
+use App\Models\Notifikasi;
+use Illuminate\Http\Request;
+use App\Models\PesananBarang;
+use App\Mail\EmailVerification;
 
 class WebController extends Controller
 {
@@ -46,6 +48,73 @@ class WebController extends Controller
         } elseif (Auth::user()->role == 'owner') {
             return redirect('/owner');
         }
+    }
+
+    public function fp_verify_email(Request $request)
+    {
+        $cek = User::where('email', $request->email)->first();
+        if ($cek) {
+            // Code
+            $random = '';
+            for ($i = 0; $i < 4; $i++) {
+                $angka = random_int(0, 9);
+                $random .= $angka;
+            }
+
+            $mail_data = [
+                'code' => $random
+            ];
+
+            \Mail::to($request->email)->send(new EmailVerification($mail_data));
+
+            $response = [
+                "response" => "success",
+                "message" => "Email valid",
+                "email" => $request->email,
+                "code" => $random
+            ];
+        } else {
+            $response = [
+                "response" => "failed",
+                "message" => "Email invalid"
+            ];
+        }
+        return response()->json($response);
+    }
+
+    public function fp_resend_otp(Request $request)
+    {
+        // Code
+        $random = '';
+        for ($i = 0; $i < 4; $i++) {
+            $angka = random_int(0, 9);
+            $random .= $angka;
+        }
+
+        $mail_data = [
+            'code' => $random
+        ];
+
+        \Mail::to($request->email)->send(new EmailVerification($mail_data));
+
+        $response = [
+            "response" => "success",
+            "code" => $random
+        ];
+        return response()->json($response);
+    }
+
+    public function fp_set_new_pass(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        $user->update([
+            "password" => bcrypt($request->password)
+        ]);
+
+        $response = [
+            "response" => "success"
+        ];
+        return response()->json($response);
     }
 
     public function user_logout()
@@ -90,36 +159,6 @@ class WebController extends Controller
         return view('user.product_data', compact('data'));
     }
 
-    // public function kitchen_set()
-    // {
-    //     $data = Barang::where('jenis', 'kitchen_set')->get();
-    //     return view('user.product_data', compact('data'));
-    // }
-
-    // public function tempat_tidur()
-    // {
-    //     $data = Barang::where('jenis', 'tempat_tidur')->get();
-    //     return view('user.product_data', compact('data'));
-    // }
-
-    // public function lemari()
-    // {
-    //     $data = Barang::where('jenis', 'lemari')->get();
-    //     return view('user.product_data', compact('data'));
-    // }
-
-    // public function meja()
-    // {
-    //     $data = Barang::where('jenis', 'meja')->get();
-    //     return view('user.product_data', compact('data'));
-    // }
-
-    // public function kursi()
-    // {
-    //     $data = Barang::where('jenis', 'kursi')->get();
-    //     return view('user.product_data', compact('data'));
-    // }
-
     public function view($id)
     {
         $data = Barang::find($id);
@@ -150,17 +189,32 @@ class WebController extends Controller
     public function tambah_keranjang($id, $jumlah)
     {
         $data_barang = Barang::find($id);
-        $total = $data_barang->harga * $jumlah;
-        Keranjang::create([
-            'user_id' => Auth::user()->id,
-            'barang_id' => $id,
-            'nama' => $data_barang->nama,
-            'harga' => $data_barang->harga,
-            'jumlah' => $jumlah,
-            'total' => $total,
-            'gambar' => $data_barang->gambar,
-            'url' => '/produk/' . $id
-        ]);
+        $user_keranjang = Keranjang::where('user_id', Auth::user()->id)->where('barang_id', $id)->first();
+        if ($user_keranjang) {
+            $total = $data_barang->harga * ($jumlah + $user_keranjang->jumlah);
+            $user_keranjang->update([
+                "jumlah" => $user_keranjang->jumlah + $jumlah,
+                "total" => $total
+            ]);
+        } else {
+            $total = $data_barang->harga * $jumlah;
+            Keranjang::create([
+                'user_id' => Auth::user()->id,
+                'barang_id' => $id,
+                'nama' => $data_barang->nama,
+                'harga' => $data_barang->harga,
+                'jumlah' => $jumlah,
+                'total' => $total,
+                'gambar' => $data_barang->gambar,
+                'url' => '/produk/' . $id
+            ]);
+        }
+    }
+
+    public function keranjang_total()
+    {
+        $ktotal = Auth::user()->keranjang->sum('jumlah');
+        return response()->json($ktotal);
     }
 
     public function keranjang_produk_update($id, $jumlah)
@@ -181,6 +235,26 @@ class WebController extends Controller
 
         $total = Keranjang::where('user_id', Auth::user()->id)->sum('total');
         return view('user.keranjang-data', compact('total'));
+    }
+
+    public function cek_stok()
+    {
+        foreach (Auth::user()->keranjang as $kdata) {
+            $produk = Barang::find($kdata->barang_id);
+            if ($kdata->jumlah > $produk->stock) {
+                $response = [
+                    "response" => "failed",
+                    "message" => "Stok produk " . $produk->nama . " tidak mencukupi"
+                ];
+                return response()->json($response);
+            }
+        }
+
+        $response = [
+            "response" => "success",
+            "message" => ""
+        ];
+        return response()->json($response);
     }
 
     public function informasi_pesanan()

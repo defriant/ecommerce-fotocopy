@@ -279,3 +279,79 @@
 .ldio-c34g0uje79h div {
     box-sizing: content-box;
 }
+
+.month-picker {
+    background-color: transparent !important;
+}
+
+.loader {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.loader4 {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    padding: 0px;
+    border-radius: 100%;
+    border: 5px solid;
+    border-top-color: #00AAFF;
+    border-bottom-color: rgb(225, 225, 225);
+    border-left-color: #00AAFF;
+    border-right-color: rgb(225, 225, 225);
+    -webkit-animation: loader4 1s ease-in-out infinite;
+    animation: loader4 1s ease-in-out infinite;
+}
+
+@keyframes loader4 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes loader4 {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+#btn-print {
+    float: right;
+    padding: 0.3rem 1rem;
+    border: 1px solid #9da0a0;
+    border-radius: 4px;
+    opacity: .7;
+    transition: .3s;
+    display: none;
+}
+
+#btn-print:hover {
+    opacity: 1;
+}
+
+.ui-datepicker-calendar {
+    display: none;
+}
+
+.print-title {
+    display: none;
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    .print-title {
+        display: inline;
+    }
+}

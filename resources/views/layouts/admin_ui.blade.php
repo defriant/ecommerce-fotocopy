@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="{{ asset('admins/vendor/linearicons/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('admins/vendor/chartist/css/chartist-custom.css') }}">
 	<link rel="stylesheet" href="{{ asset('admins/vendor/toastr/toastr.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('admins/vendor/jquery/jquery-ui.css') }}">
 	<!-- Datetimepicker css -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('admins/datetimepicker/jquery.datetimepicker.css') }}">
 	<!-- MAIN CSS -->
@@ -85,6 +86,9 @@
 						<li>
 							<a href="/admin/semua-transaksi" class="{{ Request::is('admin/semua-transaksi') ? 'active' : '' }}"><i class="far fa-comments-alt-dollar"></i> <span>Semua Transaksi</span></a>
 						</li>
+						<li>
+							<a href="/admin/laporan-transaksi" class="{{ Request::is('admin/laporan-transaksi') ? 'active' : '' }}"><i class="far fa-cash-register"></i> <span>Laporan Transaksi</span></a>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -106,6 +110,7 @@
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	<script src="{{ asset('admins/vendor/jquery/jquery.min.js') }}"></script>
+	<script src="{{ asset('admins/vendor/jquery/jquery-ui.js') }}"></script>
 	<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 	<script src="{{ asset('admins/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('admins/vendor/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
@@ -113,11 +118,15 @@
 	<script src="{{ asset('admins/vendor/chartist/js/chartist.min.js') }}"></script>
 	<script src="{{ asset('admins/vendor/toastr/toastr.min.js') }}"></script>
 	<script src="{{ asset('admins/scripts/klorofil-common.js') }}"></script>
-	
 	<script src="{{ asset('admins/datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
-    
+    <script src="{{ asset('admins/scripts/main.js') }}"></script>
+
 	@if (Request::is('admin/produk'))
 		<script src="{{ asset('admins/scripts/produk-script.js') }}"></script>
+	@endif
+
+	@if (Request::is('admin/laporan-transaksi'))
+		<script src="{{ asset('admins/scripts/transactionReport.js') }}"></script>
 	@endif
 
 	@if (Request::is('owner'))

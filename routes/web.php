@@ -23,6 +23,11 @@ Route::post('/attempt-login', [WebController::class, 'attempt_login']);
 Route::get('/check-this-user-role', [WebController::class, 'check_this_user_role']);
 Route::get('/user-logout', [WebController::class, 'user_logout']);
 
+// Forget Password Route
+Route::post('/forget-password/verify-email', [WebController::class, 'fp_verify_email']);
+Route::post('/forget-password/resend-otp', [WebController::class, 'fp_resend_otp']);
+Route::post('/forget-password/set-new-pass', [WebController::class, 'fp_set_new_pass']);
+
 // Account Regis Route
 Route::get('/register', [RegisController::class, 'register']);
 Route::get('/mail-check/{email}', [RegisController::class, 'mail_check']);
@@ -40,11 +45,6 @@ Route::get('/all-item', [WebController::class, 'all_item']);
 Route::get('/get-keranjang-count', [WebController::class, 'keranjang_count']);
 Route::get('/search-produk/{id}', [WebController::class, 'search_produk']);
 Route::get('/produk-data/{kategori}', [WebController::class, 'produk_data_kategori']);
-// Route::get('/produk-data/kitchen-set', [WebController::class, 'kitchen_set']);
-// Route::get('/produk-data/tempat-tidur', [WebController::class, 'tempat_tidur']);
-// Route::get('/produk-data/lemari', [WebController::class, 'lemari']);
-// Route::get('/produk-data/meja', [WebController::class, 'meja']);
-// Route::get('/produk-data/kursi', [WebController::class, 'kursi']);
 Route::post('/produk/{id}', [WebController::class, 'view']);
 Route::get('/produk/{id}', [WebController::class, 'view_get']);
 
@@ -52,10 +52,12 @@ Route::group(['middleware' => ['auth', 'customerRole']], function () {
     Route::get('/get-notifikasi', [WebController::class, 'get_notifikasi']);
     Route::get('/notifikasi-read', [WebController::class, 'notifikasi_read']);
     Route::get('/keranjang', [WebController::class, 'keranjang']);
+    Route::get('/keranjang/total', [WebController::class, 'keranjang_total']);
     Route::get('/keranjang-data', [WebController::class, 'keranjang_data']);
     Route::get('/tambah-keranjang/{id}/{jumlah}', [WebController::class, 'tambah_keranjang']);
     Route::get('/keranjang-produk-update/{id}/{jumlah}', [WebController::class, 'keranjang_produk_update']);
     Route::get('/hapus-keranjang/{id}', [WebController::class, 'hapus_keranjang']);
+    Route::get('/lanjut-pesanan/cek-stok', [WebController::class, 'cek_stok']);
     Route::get('/informasi-pesanan', [WebController::class, 'informasi_pesanan']);
     Route::post('/pesanan-proses', [WebController::class, 'pesanan_proses']);
     Route::get('/pesanan', [WebController::class, 'pesanan']);
@@ -105,6 +107,11 @@ Route::group(['middleware' => ['auth', 'adminRole']], function () {
     Route::get('/admin/detail-pesanan/{id}', [AdminController::class, 'detail_pesanan']);
     Route::get('/admin/semua-transaksi-data', [AdminController::class, 'semua_transaksi_data']);
     Route::get('/admin/cari-pesanan/{id}', [AdminController::class, 'cari_pesanan']);
+
+    Route::get('/admin/laporan-transaksi', function () {
+        return view('admin.report');
+    });
+    Route::post('/admin/laporan-transaksi/get', [AdminController::class, 'get_laporan_transaksi']);
 });
 
 // Owner Route
