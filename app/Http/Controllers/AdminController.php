@@ -13,6 +13,8 @@ use Auth;
 use Session;
 use Str;
 
+use function PHPUnit\Framework\fileExists;
+
 class AdminController extends Controller
 {
     public function notification_badge()
@@ -107,7 +109,9 @@ class AdminController extends Controller
         if ($request->hasFile('gambar_1')) {
             $imageName = $barang->barangimg[0]->gambar;
             $path = public_path('user/barang_img/' . $imageName);
-            unlink($path);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $extension = $request->file('gambar_1')->getClientOriginalExtension();
             $request->file('gambar_1')->move('user/barang_img/', $id . '-' . $time . '-image-1.' . $extension);
@@ -124,7 +128,9 @@ class AdminController extends Controller
         if ($request->hasFile('gambar_2')) {
             $imageName = $barang->barangimg[1]->gambar;
             $path = public_path('user/barang_img/' . $imageName);
-            unlink($path);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $extension = $request->file('gambar_2')->getClientOriginalExtension();
             $request->file('gambar_2')->move('user/barang_img/', $id . '-' . $time . '-image-2.' . $extension);
@@ -137,7 +143,9 @@ class AdminController extends Controller
         if ($request->hasFile('gambar_3')) {
             $imageName = $barang->barangimg[2]->gambar;
             $path = public_path('user/barang_img/' . $imageName);
-            unlink($path);
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
             $extension = $request->file('gambar_3')->getClientOriginalExtension();
             $request->file('gambar_3')->move('user/barang_img/', $id . '-' . $time . '-image-3.' . $extension);
